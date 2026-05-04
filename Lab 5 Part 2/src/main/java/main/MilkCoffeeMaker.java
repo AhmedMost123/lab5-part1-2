@@ -3,16 +3,20 @@ package main;
 
 public class MilkCoffeeMaker implements CoffeeMaker {
     @Override
-    public boolean make(CoffeeMachine machine) {
-        if (machine.getCoffeePowder() < 10) {
+    public boolean make(CoffeeMachine machine) 
+    {
+        if (machine.getCoffeePowder() < 10) 
+        {
             System.out.println("Sorry, not enough Coffee Powder.");
             return false;
         }
-        if (machine.getWater() < 0.2) {
+        if (machine.getWater() < 0.2)
+        {
             System.out.println("Sorry, not enough Water.");
             return false;
         }
-        if (machine.getMilk() < 0.1) {
+        if (machine.getMilk() < 0.1) 
+        {
             System.out.println("Sorry, not enough Milk.");
             return false;
         }

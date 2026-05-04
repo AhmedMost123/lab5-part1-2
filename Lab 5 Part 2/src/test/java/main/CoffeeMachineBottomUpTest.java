@@ -13,17 +13,16 @@ class CoffeeMachineBottomUpTest {
         state.setCoffeePowder(100.0); // Start with 100
         state.setWater(5.0);          // Start with 5.0
 
-        // low-level module under test
+        // low level module under test
         BlackCoffeeMaker realBlackCoffeeMaker = new BlackCoffeeMaker();
         
-        // The test "drives" the low-level module
+        // The test drives the low-level module
         boolean success = realBlackCoffeeMaker.make(state);
 
         // Check that the method reported success
         assertTrue(success);
 
-        // We assert that the expected value (90.0) is EQUAL to
-        // the actual value (state.getCoffeePowder()).
+        // We assert that the expected value (90.0) is equal to the actual value (state.getCoffeePowder()).
         assertEquals(90.0, state.getCoffeePowder());
         // We also check the water
         assertEquals(4.8, state.getWater());

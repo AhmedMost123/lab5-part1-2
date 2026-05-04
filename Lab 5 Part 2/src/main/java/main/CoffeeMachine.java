@@ -6,19 +6,17 @@ public class CoffeeMachine {
 private final CoffeeMaker blackCoffeeMaker;
 private final CoffeeMaker milkCoffeeMaker;
 
-// State
 private double coffeePowder;
 private double milk;
 private double water;
 
-// 1. The tests DEPEND ON THIS CONSTRUCTOR.
 // This is where we inject the dependencies.
 public CoffeeMachine(CoffeeMaker blackCoffeeMaker, CoffeeMaker milkCoffeeMaker) {
     this.blackCoffeeMaker = blackCoffeeMaker;
     this.milkCoffeeMaker = milkCoffeeMaker;
 }
 
-// 2. The tests DEPEND ON THIS METHOD SIGNATURE.
+
 // We pass 'choice' in, so the test can control it.
 public void makeCoffee(int choice) {
     switch (choice) {
@@ -37,7 +35,7 @@ public void makeCoffee(int choice) {
     }
 }
 
-// --- Getters and Setters (Also needed for tests) ---
+// Getters and Setters
 
 public double getCoffeePowder() { return coffeePowder; }
 public void setCoffeePowder(double coffeePowder) { this.coffeePowder = coffeePowder; }

@@ -19,35 +19,26 @@ class CoffeeMachineTopDownTest {
     @Mock
     private CoffeeMaker milkCoffeeMakerMock;
 
-     //This is the high-level object we are testing.
-     //Note: We have REMOVED @InjectMocks.
-     
+     //This is the high-level object we are testing.   
     private CoffeeMachine coffeeMachine;
 
     //This method runs before each @Test.
-     // It manually creates the CoffeeMachine and passes
-     // the mocks directly into its constructor.
-     //This REPLACES @InjectMocks.
-     
+    // It manually creates the CoffeeMachine and passes the mocks directly into its constructor.
     @BeforeEach
-    void setUp() {
+    void setUp() 
+    {
         // Manually create the class under test and inject the mocks
         coffeeMachine = new CoffeeMachine(blackCoffeeMakerMock, milkCoffeeMakerMock);
     }
 
     @Test
     void testMakeCoffee_WhenChoiceIs1_CallsBlackCoffeeMaker() {
-        // ARRANGE
         int choice = 1;
         when(blackCoffeeMakerMock.make(any(CoffeeMachine.class))).thenReturn(true);
-
-        // ACT
         // Call the method on the object we created in setUp()
         coffeeMachine.makeCoffee(choice);
 
-        // ASSERT
-        // This should now pass, because 'coffeeMachine' is
-        // guaranteed to contain our mock.
+        // This should now pass, because 'coffeeMachine' is guaranteed to contain our mock.
         verify(blackCoffeeMakerMock, times(1)).make(coffeeMachine);
         verify(milkCoffeeMakerMock, never()).make(any());
     }
@@ -57,11 +48,7 @@ class CoffeeMachineTopDownTest {
         // ARRANGE
         int choice = 2;
         when(milkCoffeeMakerMock.make(any(CoffeeMachine.class))).thenReturn(true);
-
-        // ACT
         coffeeMachine.makeCoffee(choice);
-
-        // ASSERT
         verify(milkCoffeeMakerMock, times(1)).make(coffeeMachine);
         verify(blackCoffeeMakerMock, never()).make(any());
     }
