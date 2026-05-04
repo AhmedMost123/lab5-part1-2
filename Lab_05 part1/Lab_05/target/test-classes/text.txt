@@ -1,0 +1,6 @@
+5
+1.5
+Test
+2
+anything
+0.9
