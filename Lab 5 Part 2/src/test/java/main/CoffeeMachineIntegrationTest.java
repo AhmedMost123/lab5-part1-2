@@ -23,6 +23,7 @@ class CoffeeMachineIntegrationTest {
 
         // Call the high level method
         integratedMachine.makeCoffee(choice);
+        assertTrue(result);
 
         // check the final state of the integrated system.
         assertEquals(90.0, integratedMachine.getCoffeePowder());

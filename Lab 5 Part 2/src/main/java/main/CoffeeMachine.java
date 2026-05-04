@@ -9,7 +9,27 @@ private final CoffeeMaker milkCoffeeMaker;
 private double coffeePowder;
 private double milk;
 private double water;
+private int coffeeCount;
 
+public void incrementCoffeeCount() {
+    coffeeCount++;
+}
+
+public int getCoffeeCount() {
+    return coffeeCount;
+}
+public void fill() {
+    System.out.println("Filling...");
+    this.coffeePowder = 500.0;
+    this.milk = 1.0;
+    this.water = 2.0;
+    System.out.println("Filling Completed.");
+}
+public void printStatus() {
+    System.out.println("Available Coffee Power(Gram) " + String.format("%.1f", coffeePowder));
+    System.out.println("Available Milk(Liter) " + String.format("%.1f", milk));
+    System.out.println("Available Water(Liter) " + String.format("%.1f", water));
+}
 // This is where we inject the dependencies.
 public CoffeeMachine(CoffeeMaker blackCoffeeMaker, CoffeeMaker milkCoffeeMaker) {
     this.blackCoffeeMaker = blackCoffeeMaker;
@@ -18,20 +38,18 @@ public CoffeeMachine(CoffeeMaker blackCoffeeMaker, CoffeeMaker milkCoffeeMaker) 
 
 
 // We pass 'choice' in, so the test can control it.
-public void makeCoffee(int choice) {
+public boolean makeCoffee(int choice) {
     switch (choice) {
         case 1:
-            // Delegates the work to the dependency
-            this.blackCoffeeMaker.make(this);
-            break;
+            return this.blackCoffeeMaker.make(this);
         case 2:
-            this.milkCoffeeMaker.make(this);
-            break;
+            return this.milkCoffeeMaker.make(this);
         case 0:
             System.out.println("Exiting...");
-            break;
+            return false;
         default:
-            System.out.println("Invalid choice. Please select 1, 2, or 0.");
+            System.out.println("Invalid choice.");
+            return false;
     }
 }
 

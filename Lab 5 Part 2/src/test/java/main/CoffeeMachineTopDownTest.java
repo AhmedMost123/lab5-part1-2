@@ -52,4 +52,11 @@ class CoffeeMachineTopDownTest {
         verify(milkCoffeeMakerMock, times(1)).make(coffeeMachine);
         verify(blackCoffeeMakerMock, never()).make(any());
     }
+    @Test
+    void testMakeCoffee_InvalidChoice() {
+        boolean result = coffeeMachine.makeCoffee(99);
+
+        assertFalse(result);
+        verifyNoInteractions(blackCoffeeMakerMock, milkCoffeeMakerMock);
+    }
 }

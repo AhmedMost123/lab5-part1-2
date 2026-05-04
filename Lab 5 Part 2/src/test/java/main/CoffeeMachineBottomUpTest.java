@@ -27,4 +27,18 @@ class CoffeeMachineBottomUpTest {
         // We also check the water
         assertEquals(4.8, state.getWater());
     }
+    @Test
+    void testBlackCoffeeMaker_Fails_WhenNotEnoughWater() {
+        CoffeeMachine state = new CoffeeMachine(null, null);
+        state.setCoffeePowder(100.0);
+        state.setWater(0.1); // insufficient
+
+        BlackCoffeeMaker maker = new BlackCoffeeMaker();
+
+        boolean success = maker.make(state);
+
+        assertFalse(success);
+        assertEquals(100.0, state.getCoffeePowder(), 0.0001); // unchanged
+        assertEquals(0.1, state.getWater(), 0.0001);
+    }
 }
