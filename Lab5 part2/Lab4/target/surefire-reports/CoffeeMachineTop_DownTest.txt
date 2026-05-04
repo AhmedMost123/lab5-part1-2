@@ -1,0 +1,30 @@
+-------------------------------------------------------------------------------
+Test set: CoffeeMachineTop_DownTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.766 s <<< FAILURE! -- in CoffeeMachineTop_DownTest
+CoffeeMachineTop_DownTest.testMakeCoffee_WhenChoiceIs1_CallsBlackCoffeeMaker -- Time elapsed: 0.741 s <<< FAILURE!
+Wanted but not invoked:
+blackCoffeeMakerMock.make(
+    CoffeeMachine@678040b3
+);
+-> at CoffeeMachineTop_DownTest.testMakeCoffee_WhenChoiceIs1_CallsBlackCoffeeMaker(CoffeeMachineTop_Down.java:38)
+Actually, there were zero interactions with this mock.
+
+	at CoffeeMachineTop_DownTest.testMakeCoffee_WhenChoiceIs1_CallsBlackCoffeeMaker(CoffeeMachineTop_Down.java:38)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+CoffeeMachineTop_DownTest.testMakeCoffee_WhenChoiceIs2_CallsMilkCoffeeMaker -- Time elapsed: 0.005 s <<< FAILURE!
+Wanted but not invoked:
+milkCoffeeMakerMock.make(
+    CoffeeMachine@2f19f2aa
+);
+-> at CoffeeMachineTop_DownTest.testMakeCoffee_WhenChoiceIs2_CallsMilkCoffeeMaker(CoffeeMachineTop_Down.java:52)
+Actually, there were zero interactions with this mock.
+
+	at CoffeeMachineTop_DownTest.testMakeCoffee_WhenChoiceIs2_CallsMilkCoffeeMaker(CoffeeMachineTop_Down.java:52)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
